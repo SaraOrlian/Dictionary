@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="orlian.dictionary.word.WordLookupTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-05T01:07:38" hostname="DESKTOP-L1VMM4Q" time="0.752">
+  <properties/>
+  <testcase name="getWord" classname="orlian.dictionary.word.WordLookupTest" time="0.752"/>
+  <system-out><![CDATA[string:1
+noun
+?stri?
+string
+string01
+c
+1
+a cord usually used to bind, fasten, or tie —often used attributively
+https://media.merriam-webster.com/soundc11/W/string01.wav
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
