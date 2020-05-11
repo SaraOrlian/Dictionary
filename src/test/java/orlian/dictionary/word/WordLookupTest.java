@@ -5,8 +5,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
-import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.Assert.*;

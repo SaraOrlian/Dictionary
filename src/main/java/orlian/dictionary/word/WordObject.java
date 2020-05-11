@@ -1,12 +1,11 @@
 package orlian.dictionary.word;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import static jdk.nashorn.internal.runtime.regexp.joni.Syntax.Java;
 
 public class WordObject {
+
       class Meta {
             String id;
             List<String> stems = new ArrayList<String>();
