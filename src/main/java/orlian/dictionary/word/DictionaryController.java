@@ -5,6 +5,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import javax.sound.sampled.*;
+import javax.swing.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -72,14 +73,14 @@ public class DictionaryController {
             }
         });
     }
-        public void requestLookup (String word){
+        public void requestLookup (String word, JLabel wordType, JTextArea def){
             service.getWord(word).enqueue(new Callback<List<WordObject>>() {
 
 
                 @Override
                 public void onResponse(Call<List<WordObject>> call, Response<List<WordObject>> response) {
-                    DictionaryFrame.def.setText(response.body().get(0).shortdef.get(0));
-                    DictionaryFrame.wordType.setText(response.body().get(0).fl);
+                    def.setText(response.body().get(0).shortdef.get(0));
+                    wordType.setText(response.body().get(0).fl);
 
                 }
 

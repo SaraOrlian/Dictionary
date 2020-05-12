@@ -6,17 +6,13 @@ import javax.swing.*;
 
 public class DictionaryFrame extends JFrame {
 
-    public static JButton lookup;
-    public static JButton listen;
-    public static JLabel wordType;
-    public static JTextArea def;
 
     public DictionaryFrame() {
         //<editor-fold desc="Building the Frame">
         JFrame f = new JFrame("DictionaryFrame");
         //buttons
-        lookup = new JButton("Lookup");
-        listen = new JButton("Listen");
+        JButton lookup = new JButton("Lookup");
+        JButton listen = new JButton("Listen");
         lookup.setBounds(30, 100, 110, 30);
         listen.setBounds(190, 100, 110, 30);
         //word label
@@ -24,9 +20,9 @@ public class DictionaryFrame extends JFrame {
         label.setText("Enter Word :");
         label.setBounds(10, 10, 100, 100);
         //empty areas which will show event after button clicked
-        wordType = new JLabel();
+        JLabel wordType = new JLabel();
         wordType.setBounds(10, 120, 200, 100);
-        def = new JTextArea();
+        JTextArea def = new JTextArea();
         def.setBounds(10, 190, 320, 100);
         def.setWrapStyleWord(true);
         def.setLineWrap(true);
@@ -70,7 +66,7 @@ public class DictionaryFrame extends JFrame {
             controller.requestListen(textfield.getText());
         });
         lookup.addActionListener(actionEvent -> {
-            controller.requestLookup(textfield.getText());
+            controller.requestLookup(textfield.getText(), wordType, def);
         });
 
 //-----still need to handle exceptions, only allow user to enter a single word, tell user if word not found-----//
