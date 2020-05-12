@@ -49,38 +49,42 @@ public class DictionaryFrame extends JFrame {
         //</editor-fold>
 
 
-
-
-
         //action listeners
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://www.dictionaryapi.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-       DictionaryService service = retrofit.create(DictionaryService.class);
+        DictionaryService service = retrofit.create(DictionaryService.class);
 
         DictionaryController controller = new DictionaryController(service);
 
         listen.addActionListener(actionEvent -> {
-            controller.requestListen(textfield.getText());
+            if (check(textfield, wordType, def)) {
+                controller.requestListen(textfield.getText());
+            }
         });
         lookup.addActionListener(actionEvent -> {
-            controller.requestLookup(textfield.getText(), wordType, def);
+            if (check(textfield, wordType, def)) {
+                controller.requestLookup(textfield.getText(), wordType, def);
+            }
         });
-
-//-----still need to handle exceptions, only allow user to enter a single word, tell user if word not found-----//
-
-    /*public boolean check(JTextField textField, JTextArea def) {
-        if(!textField.getText().matches("^[a-zA-Z]+$")) {
-            def.setText("Entry invalid");
-            return false;
-        }
-        return true;
-    }*/
 
 
     }
+
+    // restrict input to a single word with no numbers
+    public boolean check(JTextField textField, JLabel wordType, JTextArea def) {
+        if(!textField.getText().matches("^[a-zA-Z]+$")) {
+            wordType.setText("Entry invalid");
+            def.setText("");
+            return false;
+        }
+        return true;
+    }
+
+
+
 
     public static void main(String[] args) {
         new DictionaryFrame();
