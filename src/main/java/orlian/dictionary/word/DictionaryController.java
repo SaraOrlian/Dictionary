@@ -25,7 +25,7 @@ public class DictionaryController {
 
 
 
-    public void requestListen(String word) {
+    public void requestListen(String word, JLabel wordType, JTextArea def) {
         service.getWord(word).enqueue(new Callback<List<WordObject>>() {
             @Override
             public void onResponse(Call<List<WordObject>> call, Response<List<WordObject>> response) {
@@ -69,7 +69,8 @@ public class DictionaryController {
 
             @Override
             public void onFailure(Call<List<WordObject>> call, Throwable t) {
-
+                wordType.setText("Word not found in Dictionary");
+                def.setText("");
             }
         });
     }
@@ -87,7 +88,8 @@ public class DictionaryController {
 
                 @Override
                 public void onFailure(Call<List<WordObject>> call, Throwable t) {
-
+                    wordType.setText("Word not found in Dictionary");
+                    def.setText("");
                 }
             });
         }

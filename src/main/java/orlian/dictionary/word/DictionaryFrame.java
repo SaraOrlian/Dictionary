@@ -61,7 +61,7 @@ public class DictionaryFrame extends JFrame {
 
         listen.addActionListener(actionEvent -> {
             if (check(textfield, wordType, def)) {
-                controller.requestListen(textfield.getText());
+                controller.requestListen(textfield.getText(), wordType, def);
             }
         });
         lookup.addActionListener(actionEvent -> {
